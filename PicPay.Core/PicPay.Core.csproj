@@ -14,4 +14,8 @@
     <ProjectReference Include="..\PicPay.Infrasctructure\PicPay.Infrasctructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Account\Models\" />
+  </ItemGroup>
+
 </Project>

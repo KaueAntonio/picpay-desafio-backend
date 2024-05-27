@@ -1,14 +1,14 @@
 using PicPay.Core.Users.Models.Input;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PicPay.Infrasctructure.Database.Models;
 
 namespace PicPay.Core.Users.Interfaces.Services
 {
     public interface IUsersService
     {
-        Task CreateUser(InUser user);
+        Task Create(InUser user);
+        Task<User> GetById(string id);
+        Task<IEnumerable<User>> GetAll();
+        Task Update(User user);
+        Task Delete(User user);
     }
 }

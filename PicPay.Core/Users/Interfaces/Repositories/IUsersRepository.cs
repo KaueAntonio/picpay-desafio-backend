@@ -4,6 +4,9 @@ namespace PicPay.Core.Users.Interfaces.Repositories
 {
     public interface IUsersRepository
     {
-        Task CreateUser(User user);
+        Task<User> GetById(string id);
+        Task<IEnumerable<User>> GetAll();
+        Task Update(User user);
+        Task Delete(User user);
     }
 }

@@ -7,6 +7,10 @@ using PicPay.Core.Transfers.Interfaces.Repositories;
 using PicPay.Core.Transfers.Repositories;
 using PicPay.Core.Transfers.Services;
 using PicPay.Core.Transfers.Interfaces.Services;
+using PicPay.Core.Accounts.Interfaces.Repositories;
+using PicPay.Core.Accounts.Interfaces.Services;
+using PicPay.Core.Accounts.Repositories;
+using PicPay.Core.Accounts.Services;
 
 namespace PicPay.Core.IoC
 {
@@ -19,6 +23,9 @@ namespace PicPay.Core.IoC
 
             services.AddScoped<ITransfersRepository, TransfersRepository>();
             services.AddScoped<ITransfersService, TransfersService>();
+
+            services.AddScoped<IAccountsRepository, AccountsRepository>();
+            services.AddScoped<IAccountsService, AccountsService>();
         }
     }
 }
