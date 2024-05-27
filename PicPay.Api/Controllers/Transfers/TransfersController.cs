@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PicPay.Core.Transfers.Interfaces.Services;
 using PicPay.Core.Transfers.Models.Input;
 
 namespace PicPay.Api.Controllers.Transfers
 {
+    [Authorize(Roles = "Default")]
     [Route("transfer")]
     public class TransfersController(ITransfersService transfersService) : ControllerBase
     {
