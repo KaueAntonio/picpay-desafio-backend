@@ -4,13 +4,13 @@ using PicPay.Core.Transfers.Models.Input;
 
 namespace PicPay.Core.Transfers.Services
 {
-    public class TransferService(ITransferRepository transferRepository) : ITransferService
+    public class TransfersService(ITransfersRepository transfersRepository) : ITransfersService
     {
-        private readonly ITransferRepository _transferRepository = transferRepository;
+        private readonly ITransfersRepository _transfersRepository = transfersRepository;
 
         public async Task Transfer(InTransfer transfer)
         {
-            await _transferRepository.Transfer(transfer);
+            await _transfersRepository.Transfer(transfer);
         }
     }
 }

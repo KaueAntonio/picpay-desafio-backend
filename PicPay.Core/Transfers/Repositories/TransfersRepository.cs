@@ -3,7 +3,7 @@ using PicPay.Core.Transfers.Models.Input;
 
 namespace PicPay.Core.Transfers.Repositories
 {
-    public class TransferRepository() : ITransferRepository
+    public class TransfersRepository() : ITransfersRepository
     {
 
         public async Task Transfer(InTransfer transfer)

@@ -1,22 +1,28 @@
 version: '3.4'
 
+networks:
+  picpay-networking:
+
 services:
   picpay.api:
     image: ${DOCKER_REGISTRY-}picpayapi
     build:
       context: .
       dockerfile: PicPay.Api/Dockerfile
+    networks:
+      - picpay-networking
 
   sqlserver:
     image: mcr.microsoft.com/mssql/server:latest
     container_name: sqlserver
     environment:
-      SA_USER: "picpay"
-      SA_PASSWORD: "picpay"
+      MSSQL_SA_PASSWORD: "picpay@bc123"
       ACCEPT_EULA: "Y"
     ports:
       - "1433:1433"
     volumes:
       - sqlserver-data:/var/opt/mssql
+    networks:
+      - picpay-networking
 volumes:
   sqlserver-data:

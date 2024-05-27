@@ -9,6 +9,7 @@ namespace PicPay.Api.Controllers.Users
     {
         private readonly IUsersService _usersService = usersService;
 
+        [HttpPost]
         public async Task<IActionResult> CreateUser([FromBody]InUser user)
         {
             await _usersService.CreateUser(user);

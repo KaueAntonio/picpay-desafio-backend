@@ -2,7 +2,7 @@ using PicPay.Core.Transfers.Models.Input;
 
 namespace PicPay.Core.Transfers.Interfaces.Services
 {
-    public interface ITransferService
+    public interface ITransfersService
     {
         Task Transfer(InTransfer transfer);
     }
