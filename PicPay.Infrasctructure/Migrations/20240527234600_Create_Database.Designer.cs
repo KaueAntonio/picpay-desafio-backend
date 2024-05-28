@@ -12,7 +12,7 @@ using PicPay.Infrasctructure.Database;
 namespace PicPay.Infrasctructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240527214440_Create_Database")]
+    [Migration("20240527234600_Create_Database")]
     partial class Create_Database
     {
         /// <inheritdoc />
@@ -189,11 +189,11 @@ namespace PicPay.Infrasctructure.Migrations
                     b.Property<decimal>("Amount")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("DestinationUserId")
-                        .HasColumnType("int");
+                    b.Property<string>("DestinationUserId")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("SourceUserId")
-                        .HasColumnType("int");
+                    b.Property<string>("SourceUserId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("TransactionDate")
                         .HasColumnType("datetime2");

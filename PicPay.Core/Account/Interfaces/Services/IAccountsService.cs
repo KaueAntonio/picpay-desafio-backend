@@ -6,5 +6,7 @@ namespace PicPay.Core.Accounts.Interfaces.Services
     {
         Task<BankAccount> GetByUserId(string userId);
         Task Update(BankAccount account);
+        Task AddBalance(string userID, decimal ammount);
+        Task Create(string userId);
     }
 }

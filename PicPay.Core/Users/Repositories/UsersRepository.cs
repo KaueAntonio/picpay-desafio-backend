@@ -38,5 +38,20 @@ namespace PicPay.Core.Users.Repositories
 
             await _dbContext.SaveChangesAsync();
         }
+
+        public async Task<User> Login(string username, string password)
+        {
+            var result = await _dbContext.Users
+                .Where(user => user.UserName == username &&
+                               user.Password == password)
+                .FirstOrDefaultAsync();
+
+            return result;
+        }
+
+        public async Task<List<string>> GetToken()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

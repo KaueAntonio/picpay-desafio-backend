@@ -1,4 +1,5 @@
 using PicPay.Core.Users.Models.Input;
+using PicPay.Core.Users.Models.Output;
 using PicPay.Infrasctructure.Database.Models;
 
 namespace PicPay.Core.Users.Interfaces.Services
@@ -8,7 +9,7 @@ namespace PicPay.Core.Users.Interfaces.Services
         Task Create(InUser user);
         Task<User> GetById(string id);
         Task<IEnumerable<User>> GetAll();
-        Task Update(User user);
-        Task Delete(User user);
+        Task<User> Me();
+        Task ChangeRole(string role);
     }
 }

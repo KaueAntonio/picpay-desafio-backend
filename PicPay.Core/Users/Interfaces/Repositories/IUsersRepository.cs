@@ -8,5 +8,6 @@ namespace PicPay.Core.Users.Interfaces.Repositories
         Task<IEnumerable<User>> GetAll();
         Task Update(User user);
         Task Delete(User user);
+        Task<User> Login(string username, string password);
     }
 }

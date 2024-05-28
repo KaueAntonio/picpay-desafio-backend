@@ -20,9 +20,17 @@ namespace PicPay.Core.Accounts.Repositories
         public async Task<BankAccount> GetByUserId(string userId)
         {
             var result = await _context.BankAccounts
-                .FirstOrDefaultAsync(account => account.UserId == userId);
+                .Where(account => account.UserId == userId)
+                .FirstOrDefaultAsync();
 
             return result;
+        }
+
+        public async Task Create(BankAccount account)
+        {
+            await _context.AddAsync(account);
+
+            await _context.SaveChangesAsync();
         }
     }
 }

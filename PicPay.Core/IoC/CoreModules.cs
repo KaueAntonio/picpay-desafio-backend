@@ -11,12 +11,14 @@ using PicPay.Core.Accounts.Interfaces.Repositories;
 using PicPay.Core.Accounts.Interfaces.Services;
 using PicPay.Core.Accounts.Repositories;
 using PicPay.Core.Accounts.Services;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Identity;
 
 namespace PicPay.Core.IoC
 {
     public static class CoreModules
     {
-        public static void AddCoreModules(IServiceCollection services)
+        public static void AddCoreModules(this IServiceCollection services)
         {
             services.AddScoped<IUsersRepository, UsersRepository>();
             services.AddScoped<IUsersService, UsersService>();

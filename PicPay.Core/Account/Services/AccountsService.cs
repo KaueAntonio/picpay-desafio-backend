@@ -19,5 +19,24 @@ namespace PicPay.Core.Accounts.Services
 
             return result;
         }
+
+        public async Task AddBalance(string userID, decimal ammount)
+        {
+            var account = await _accountsRepository.GetByUserId(userID);
+
+            account.UpdateBalance(ammount);
+
+            await _accountsRepository.Update(account);
+        }
+
+        public async Task Create(string userId)
+        {
+            var newAccount = new BankAccount()
+            {
+                UserId = userId,
+            };
+
+            await _accountsRepository.Create(newAccount);
+        }
     }
 }

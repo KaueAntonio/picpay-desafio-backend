@@ -1,7 +1,7 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PicPay.Core.Users.Interfaces.Services;
 using PicPay.Core.Users.Models.Input;
-using PicPay.Infrasctructure.Database.Models;
 
 namespace PicPay.Api.Controllers.Users
 {
@@ -14,22 +14,6 @@ namespace PicPay.Api.Controllers.Users
         public async Task<IActionResult> Create([FromBody]InUser user)
         {
             await _usersService.Create(user);
-
-            return Ok();
-        }
-
-        [HttpPut]
-        public async Task<IActionResult> Update([FromBody] User user)
-        {
-            await _usersService.Update(user);
-
-            return Ok();
-        }
-
-        [HttpDelete]
-        public async Task<IActionResult> Delete([FromBody]User user)
-        {
-            await _usersService.Delete(user);
 
             return Ok();
         }
@@ -48,6 +32,23 @@ namespace PicPay.Api.Controllers.Users
             var result = await _usersService.GetAll();
 
             return Ok(result);
+        }
+
+        [HttpGet("me")]
+        [Authorize(Roles = "Default")]
+        public async Task<IActionResult> Me()
+        {
+            var result = await _usersService.Me();
+
+            return Ok(result);
+        }
+
+        [HttpPost("role")]
+        public async Task<IActionResult> ChangeRole([FromQuery]string role)
+        {
+            await _usersService.ChangeRole(role);
+
+            return Ok();
         }
     }
 }

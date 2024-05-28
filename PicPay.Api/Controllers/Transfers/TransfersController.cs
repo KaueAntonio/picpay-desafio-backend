@@ -5,8 +5,8 @@ using PicPay.Core.Transfers.Models.Input;
 
 namespace PicPay.Api.Controllers.Transfers
 {
-    [Authorize(Roles = "Default")]
     [Route("transfer")]
+    [Authorize(Roles = "Default")]
     public class TransfersController(ITransfersService transfersService) : ControllerBase
     {
         private readonly ITransfersService _transfersService = transfersService;
@@ -17,6 +17,14 @@ namespace PicPay.Api.Controllers.Transfers
             await _transfersService.Transfer(transfer);
 
             return Ok();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var result = await _transfersService.GetAll();
+
+            return Ok(result);
         }
     }
 }
